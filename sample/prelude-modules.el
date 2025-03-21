@@ -1,11 +1,5 @@
 ;;; prelude-modules.el --- A listing of modules to load on startup
-;;
-;; Copyright © 2011-2025 Bozhidar Batsov
-;;
-;; Author: Bozhidar Batsov <bozhidar@batsov.com>
-;; URL: https://github.com/bbatsov/prelude
 
-;; This file is not part of GNU Emacs.
 
 ;;; Commentary:
 
@@ -24,12 +18,10 @@
 ;; modify it under the terms of the GNU General Public License
 ;; as published by the Free Software Foundation; either version 3
 ;; of the License, or (at your option) any later version.
-;;
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -50,17 +42,14 @@
 ;; (require 'prelude-key-chord) ;; Binds useful features to key combinations
 
 ;;; Vim emulation
-;;
 ;; Enable this module if you're fond of vim's keybindings.
 ;; (require 'prelude-evil)
 
 ;;; Org-mode (a legendary productivity tool that deserves its own category)
-;;
 ;; Org-mode helps you keep TODO lists, notes and more.
 (require 'prelude-org)
 
 ;;; Programming languages support
-;;
 ;; Modules for a few very common programming languages
 ;; are enabled by default.
 

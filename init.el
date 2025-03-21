@@ -10,6 +10,7 @@
   "This directory houses all of the built-in X modules.")
 (defvar x-personal-dir (expand-file-name "personal" x-dir)
   "This directory is for your personal configuration.
+
 Users of EmacsX are encouraged to keep their personal configuration
 changes in this directory.  All Emacs Lisp files there are loaded automatically
 by X.")
@@ -56,27 +57,27 @@ by X.")
 
 ;; load the core stuff
 (require 'x-packages)
-(require 'prelude-custom)  ;; Needs to be loaded before core, editor and ui
-(require 'prelude-ui)
+(require 'x-custom)  ;; Needs to be loaded before core, editor and ui
+(require 'x-ui)
 (require 'x-core)
-(require 'prelude-mode)
-(require 'prelude-editor)
-(require 'prelude-global-keybindings)
+(require 'x-mode)
+(require 'x-editor)
+(require 'x-global-keybindings)
 
 ;; macOS specific settings
 (when (eq system-type 'darwin)
-  (require 'prelude-macos))
+  (require 'x-macos))
 
 ;; Windows specific settings
 (when (eq system-type 'windows-nt)
-  (require 'prelude-windows))
+  (require 'x-windows))
 
 (message "[X] Loading X's additional modules...")
 
 ;; the modules
 (if (file-exists-p x-modules-file)
     (load x-modules-file)
-  (load (expand-file-name "sample/prelude-modules.el" x-dir)))
+  (load (expand-file-name "sample/x-modules.el" x-dir)))
 
 ;; config changes made through the customize UI will be stored here
 (setq custom-file (expand-file-name "custom.el" x-personal-dir))

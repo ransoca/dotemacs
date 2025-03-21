@@ -1,9 +1,9 @@
-;;; x-packages.el --- Emacs Prelude: default package selection.
+;;; x-packages.el --- Emacs X: default package selection.
 
 ;;; Commentary:
 
 ;; Takes care of the automatic installation of all the packages required by
-;; Emacs Prelude.  This module also adds a couple of package.el extensions
+;; Emacs X.  This module also adds a couple of package.el extensions
 ;; and provides functionality for auto-installing major modes on demand.
 
 ;;; License:
@@ -12,12 +12,10 @@
 ;; modify it under the terms of the GNU General Public License
 ;; as published by the Free Software Foundation; either version 3
 ;; of the License, or (at your option) any later version.
-;;
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -230,7 +228,7 @@ Missing packages are installed automatically."
   (mapc #'x-require-package packages))
 
 (defun x-install-packages ()
-  "Install all packages listed in `prelude-packages'."
+  "Install all packages listed in `x-packages'."
   (unless (x-packages-installed-p)
     ;; check for new packages (package versions)
     (message "%s" "EmacsX is now refreshing its package database...")
