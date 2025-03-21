@@ -101,7 +101,7 @@
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
 ;; saveplace remembers your location in a file when saving files
-(setq save-place-file (expand-file-name "saveplace" prelude-savefile-dir))
+(setq save-place-file (expand-file-name "saveplace" x-savefile-dir))
 ;; activate it for all buffers
 (save-place-mode 1)
 
@@ -113,12 +113,12 @@
       ;; save every minute
       savehist-autosave-interval 60
       ;; keep the home clean
-      savehist-file (expand-file-name "savehist" prelude-savefile-dir))
+      savehist-file (expand-file-name "savehist" x-savefile-dir))
 (savehist-mode +1)
 
 ;; save recent files
 (require 'recentf)
-(setq recentf-save-file (expand-file-name "recentf" prelude-savefile-dir)
+(setq recentf-save-file (expand-file-name "recentf" x-savefile-dir)
       recentf-max-saved-items 500
       recentf-max-menu-items 15
       ;; disable recentf-cleanup on Emacs start, because it can cause
@@ -130,7 +130,7 @@
   (let ((file-dir (file-truename (file-name-directory file))))
     (cl-some (lambda (dir)
                (string-prefix-p dir file-dir))
-             (mapcar 'file-truename (list prelude-savefile-dir package-user-dir)))))
+             (mapcar 'file-truename (list x-savefile-dir package-user-dir)))))
 
 (add-to-list 'recentf-exclude 'prelude-recentf-exclude-p)
 
@@ -217,12 +217,12 @@
 
 ;; bookmarks
 (require 'bookmark)
-(setq bookmark-default-file (expand-file-name "bookmarks" prelude-savefile-dir)
+(setq bookmark-default-file (expand-file-name "bookmarks" x-savefile-dir)
       bookmark-save-flag 1)
 
 ;; projectile is a project management mode
 (require 'projectile)
-(setq projectile-cache-file (expand-file-name  "projectile.cache" prelude-savefile-dir))
+(setq projectile-cache-file (expand-file-name  "projectile.cache" x-savefile-dir))
 (projectile-mode t)
 
 ;; avy allows us to effectively navigate to visible things
@@ -328,10 +328,10 @@ indent yanked text (with prefix arg don't indent)."
 (setq reb-re-syntax 'string)
 
 (require 'eshell)
-(setq eshell-directory-name (expand-file-name "eshell" prelude-savefile-dir))
+(setq eshell-directory-name (expand-file-name "eshell" x-savefile-dir))
 
 (setq semanticdb-default-save-directory
-      (expand-file-name "semanticdb" prelude-savefile-dir))
+      (expand-file-name "semanticdb" x-savefile-dir))
 
 ;; Compilation from Emacs
 (defun prelude-colorize-compilation-buffer ()
