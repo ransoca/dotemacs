@@ -97,8 +97,8 @@ Start `ielm' if it's not already running."
   (diminish 'eldoc-mode))
 
 (with-eval-after-load "ielm"
-  (define-key ielm-map (kbd "M-(") (prelude-wrap-with "("))
-  (define-key ielm-map (kbd "M-\"") (prelude-wrap-with "\"")))
+  (define-key ielm-map (kbd "M-(") (x-wrap-with "("))
+  (define-key ielm-map (kbd "M-\"") (x-wrap-with "\"")))
 
 ;; enable elisp-slime-nav-mode
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))

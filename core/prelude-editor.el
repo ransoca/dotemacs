@@ -82,10 +82,9 @@
 
 (show-smartparens-global-mode +1)
 
-(define-key prog-mode-map (kbd "M-(") (prelude-wrap-with "("))
+(define-key prog-mode-map (kbd "M-(") (x-wrap-with "("))
 ;; FIXME: pick terminal friendly binding
-;; (define-key prog-mode-map (kbd "M-[") (prelude-wrap-with "["))
-(define-key prog-mode-map (kbd "M-\"") (prelude-wrap-with "\""))
+(define-key prog-mode-map (kbd "M-\"") (x-wrap-with "\""))
 
 ;; disable annoying blink-matching-paren
 (setq blink-matching-paren nil)

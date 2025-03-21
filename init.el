@@ -55,10 +55,10 @@ by X.")
 (message "[X] Loading X's core modules...")
 
 ;; load the core stuff
-(require 'prelude-packages)
+(require 'x-packages)
 (require 'prelude-custom)  ;; Needs to be loaded before core, editor and ui
 (require 'prelude-ui)
-(require 'prelude-core)
+(require 'x-core)
 (require 'prelude-mode)
 (require 'prelude-editor)
 (require 'prelude-global-keybindings)
