@@ -1,6 +1,6 @@
 ;;; prelude-ts.el --- Emacs Prelude: Typescript programming support.
 ;;
-;; Copyright © 2011-2022 LEE Dongjun
+;; Copyright © 2023-2025 LEE Dongjun
 ;;
 ;; Author: LEE Dongjun <redongjun@gmail.com>
 
@@ -30,11 +30,15 @@
 ;;; Code:
 
 (require 'prelude-programming)
-(prelude-require-packages '(tide))
-
-(require 'typescript-mode)
+(prelude-require-packages '(tide typescript-mode))
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+
+(defcustom prelude-ts-format-action #'tide-format-before-save
+  "The format function to invoke on save.
+
+Triggered only when `prelude-format-on-save' is enabled."
+  :package-version '(prelude . "1.2"))
 
 (with-eval-after-load 'typescript-mode
   (defun prelude-ts-mode-defaults ()
@@ -48,8 +52,8 @@
   ;; formats the buffer before saving
   (add-hook 'before-save-hook
             (lambda ()
-              (when prelude-format-on-save
-                (tide-format-before-save))))
+              (when (and prelude-format-on-save prelude-ts-format-action)
+                (funcall prelude-ts-format-action))))
 
   (setq prelude-ts-mode-hook 'prelude-ts-mode-defaults)
 
