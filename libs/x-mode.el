@@ -1,4 +1,4 @@
-;;; x-core-mode.el --- Minor mode to encapsulate its extensions.
+;;; x-mode.el --- Minor mode to encapsulate its extensions.
 
 ;;; Commentary:
 ;; A minor mode defining a local keymap, plus a menu.
@@ -128,8 +128,5 @@
      ["Search in Google" x-google]
      ["View URL" browse-url-at-point])))
 
-;; enable x-mode
-(x-mode 1)
-
-(provide 'x-core-mode)
-;;; x-core-mode.el ends here
+(provide 'x-mode)
+;;; x-mode.el ends here

@@ -1,4 +1,4 @@
-;;; x-init-defs.el --- Foundational Customizations.
+;;; x-main-defs.el --- Foundational Customizations.
 
 ;;; Commentary:
 ;; Refinements of the editing experience.
@@ -111,6 +111,8 @@ Only modes that don't derive from `prog-mode' should be listed here."
   :type 'number
   :group 'x)
 
-(provide 'x-init-defs)
+(defvar x:save-file-dir (expand-file-name "temp.d" user-emacs-directory))
 
-;;; x-init-defs.el ends here
+(provide 'x-main-defs)
+
+;;; x-main-defs.el ends here

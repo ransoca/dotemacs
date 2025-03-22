@@ -1,4 +1,4 @@
-;;; x-init-deps.el --- Foundational Dependencies.
+;;; x-main-deps.el --- Foundational Dependencies.
 
 ;;; Commentary:
 ;; Takes care of the automatic installation of all the packages.
@@ -258,9 +258,9 @@ removing unwanted packages."
 (when (package-installed-p 'pkgbuild-mode)
   (add-to-list 'auto-mode-alist '("PKGBUILD\\'" . pkgbuild-mode)))
 
-(provide 'x-init-deps)
+(provide 'x-main-deps)
 ;; Local Variables:
 ;; byte-compile-warnings: (not cl-functions)
 ;; End:
 
-;;; x-init-deps.el ends here
+;;; x-main-deps.el ends here

@@ -1,7 +1,6 @@
-;;; x-editor.el --- Emacs X: enhanced core editing experience.
+;;; x-core-hack.el --- Enhanced core editing experience.
 
 ;;; Commentary:
-
 ;; Refinements of the core editing experience in Emacs.
 
 ;;; License:
@@ -82,8 +81,11 @@
 (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
+(unless (file-exists-p x:save-file-dir)
+    (make-directory x:save-file-dir))
+
 ;; saveplace remembers your location in a file when saving files
-(setq save-place-file (expand-file-name "saveplace" x-savefile-dir))
+(setq save-place-file (expand-file-name "save-place" x:save-file-dir))
 ;; activate it for all buffers
 (save-place-mode 1)
 
@@ -95,12 +97,12 @@
       ;; save every minute
       savehist-autosave-interval 60
       ;; keep the home clean
-      savehist-file (expand-file-name "savehist" x-savefile-dir))
+      savehist-file (expand-file-name "save-hist" x:save-file-dir))
 (savehist-mode +1)
 
 ;; save recent files
 (require 'recentf)
-(setq recentf-save-file (expand-file-name "recentf" x-savefile-dir)
+(setq recentf-save-file (expand-file-name "recentf" x:save-file-dir)
       recentf-max-saved-items 500
       recentf-max-menu-items 15
       ;; disable recentf-cleanup on Emacs start, because it can cause
@@ -112,7 +114,7 @@
   (let ((file-dir (file-truename (file-name-directory file))))
     (cl-some (lambda (dir)
                (string-prefix-p dir file-dir))
-             (mapcar 'file-truename (list x-savefile-dir package-user-dir)))))
+             (mapcar 'file-truename (list x:save-file-dir package-user-dir)))))
 
 (add-to-list 'recentf-exclude 'x-recentf-exclude-p)
 
@@ -199,12 +201,12 @@
 
 ;; bookmarks
 (require 'bookmark)
-(setq bookmark-default-file (expand-file-name "bookmarks" x-savefile-dir)
+(setq bookmark-default-file (expand-file-name "bookmarks" x:save-file-dir)
       bookmark-save-flag 1)
 
 ;; projectile is a project management mode
 (require 'projectile)
-(setq projectile-cache-file (expand-file-name  "projectile.cache" x-savefile-dir))
+(setq projectile-cache-file (expand-file-name  "projectile.cache" x:save-file-dir))
 (projectile-mode t)
 
 ;; avy allows us to effectively navigate to visible things
@@ -310,10 +312,10 @@ indent yanked text (with prefix arg don't indent)."
 (setq reb-re-syntax 'string)
 
 (require 'eshell)
-(setq eshell-directory-name (expand-file-name "eshell" x-savefile-dir))
+(setq eshell-directory-name (expand-file-name "eshell" x:save-file-dir))
 
 (setq semanticdb-default-save-directory
-      (expand-file-name "semanticdb" x-savefile-dir))
+      (expand-file-name "semanticdb" x:save-file-dir))
 
 ;; Compilation from Emacs
 (defun x-colorize-compilation-buffer ()
@@ -336,9 +338,6 @@ indent yanked text (with prefix arg don't indent)."
 ;; http://stackoverflow.com/a/3072831/355252
 (require 'ansi-color)
 (add-hook 'compilation-filter-hook #'x-colorize-compilation-buffer)
-
-;; enable X's keybindings
-(x-mode t)
 
 (defvar x-undo-tree t
   "When non-nil, enable undo-tree mode for enhanced undo/redo functionality.")
@@ -411,6 +410,6 @@ and file 'filename' will be opened and cursor set on line 'linenumber'"
 (editorconfig-mode 1)
 (diminish 'editorconfig-mode)
 
-(provide 'x-editor)
+(provide 'x-core-hack)
 
-;;; x-editor.el ends here
+;;; x-core-hack.el ends here

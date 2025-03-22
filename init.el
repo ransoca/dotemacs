@@ -20,11 +20,8 @@
 (defvar x:dir (file-name-directory load-file-name)
   "The root directory for initialization.")
 
-(defvar x:init-dir (expand-file-name "init.d" x:dir)
-  "The home for inital functionality.")
-
-(defvar x:core-dir (expand-file-name "core.d" x:dir)
-   "The home of configuration functionality.")
+(defvar x:libs-dir (expand-file-name "libs" x:dir)
+   "The root directory for configuration.")
 
 ;; (defvar x-init:mods-dir (expand-file-name "mods.d" x-init:root-dir)
 ;;   "This directory houses all of the built-in X modules.")
@@ -32,25 +29,20 @@
 ;; (defvar x-init:libs-dir (expand-file-name "libs.d" x-init:root-dir)
 ;;   "This directory houses packages that are not yet available in ELPA (or MELPA).")
 
-;; (let ((save-file-dir (expand-file-name "savefile" user-emacs-directory)))
-;;   (unless (file-exists-p x-savefile-dir)
-;;     (make-directory save-file-dir)))
-
 ;; (defvar x-modules-file (expand-file-name "x-modules.el" x-personal-dir)
 ;;   "This file contains a list of modules that will be loaded by X.")
 
-(defun x-init:-add-subfolders-to-load-path (parent-dir)
-  "Add all level PARENT-DIR subdirs to the `load-path'."
-  (dolist (f (directory-files parent-dir))
-    (let ((name (expand-file-name f parent-dir)))
-      (when (and (file-directory-p name)
-                 (not (string-prefix-p "." f)))
-        (add-to-list 'load-path name)
-        (x-init:-add-subfolders-to-load-path name)))))
+;; (defun x-init:-add-subfolders-to-load-path (parent-dir)
+;;   "Add all level PARENT-DIR subdirs to the `load-path'."
+;;   (dolist (f (directory-files parent-dir))
+;;     (let ((name (expand-file-name f parent-dir)))
+;;       (when (and (file-directory-p name)
+;;                  (not (string-prefix-p "." f)))
+;;         (add-to-list 'load-path name)
+;;         (x-init:-add-subfolders-to-load-path name)))))
 
 ;; Add directories to load path
-(add-to-list 'load-path x:init-dir)
-(add-to-list 'load-path x:core-dir)
+(add-to-list 'load-path x:libs-dir)
 ;; (add-to-list 'load-path x-init:mods-dir)
 ;; (add-to-list 'load-path x-init:libs-dir)
 ;; (x-init:-add-subfolders-to-load-path x-init:libs-dir)
@@ -79,15 +71,13 @@
 ;; (message "[X] Loading X's core modules...")
 
 ;; initializing
-(require 'x-init-deps)
-(require 'x-init-defs)
+(require 'x-main)
 
 ;; configuration
-(require 'x-core-uiux)
-(require 'x-core-base)
-(require 'x-core-mode)
-;; (require 'x-core-hack)
-;; (require 'x-core-keys)
+(require 'x-core)
+
+;; modularization
+(require 'x-mode)
 
 ;; macOS specific settings
 ;; (when (eq system-type 'darwin)
@@ -115,3 +105,16 @@
 ;;                (directory-files x-personal-dir 't "^[^#\.].*\\.el$"))))
 
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("7fea145741b3ca719ae45e6533ad1f49b2a43bf199d9afaee5b6135fd9e6f9b8" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
