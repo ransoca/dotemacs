@@ -1,4 +1,6 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
 (("/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/"
   (dired-filename . "/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/init.el"))
- ("/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/init.el" . 2861))
+ ("/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/init.el" . 2861)
+ ("/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/init.d/"
+  (dired-filename . "/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/init.d/..")))

@@ -1,7 +1,7 @@
-;;; x-main.el --- Initialization.
+;;; x-core.el --- Initialization.
 
 ;;; Commentary:
-;; Initialization of the editor config.
+;; Initialization of the editor config..
 
 ;;; License:
 ;; THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -13,17 +13,19 @@
 
 ;;; Code:
 
-(defvar x:main-libs-dir (expand-file-name "main" x:libs-dir)
-  "The home for inital functionality.")
+(defvar x:core-dir (expand-file-name "core" x:init-dir)
+   "The home of configuration functionality.")
 
 ;; Add directories to load path
-(add-to-list 'load-path x:main-libs-dir)
+(add-to-list 'load-path x:core-dir)
 
-(message "[X] Loading main modules...")
+(message "[X] Loading core modules...")
 
-;; initializing
-(require 'x-main-deps)
-(require 'x-main-defs)
+;; intializing
+(require 'x-core-uiux)
+(require 'x-core-base)
+(require 'x-core-hack)
+(require 'x-core-keys)
 
-(provide 'x-main)
-;;; x-main.el ends here
+(provide 'x-core)
+;;; x-core.el ends here

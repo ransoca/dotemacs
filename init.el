@@ -1,7 +1,7 @@
 ;;; init.el --- Initialization.
 
 ;;; Commentary:
-;; Initialization of the editor config..
+;; Initialization of the editor config.
 
 ;;; License:
 ;; THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -20,8 +20,28 @@
 (defvar x:dir (file-name-directory load-file-name)
   "The root directory for initialization.")
 
-(defvar x:libs-dir (expand-file-name "libs" x:dir)
+(defvar x:init-dir (expand-file-name "init.d" x:dir)
    "The root directory for configuration.")
+
+(add-to-list 'load-path x:init-dir)
+
+;; reduce the frequency of garbage collection by making it happen on
+;; each 50MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold 50000000)
+
+;; warn when opening files bigger than 100MB
+(setq large-file-warning-threshold 100000000)
+
+;; (message "[X] Loading X's core modules...")
+
+;; initializing
+(require 'x-main)
+
+;; configuration
+(require 'x-core)
+
+;; modularization
+(require 'x-mode)
 
 ;; (defvar x-init:mods-dir (expand-file-name "mods.d" x-init:root-dir)
 ;;   "This directory houses all of the built-in X modules.")
@@ -42,17 +62,10 @@
 ;;         (x-init:-add-subfolders-to-load-path name)))))
 
 ;; Add directories to load path
-(add-to-list 'load-path x:libs-dir)
+
 ;; (add-to-list 'load-path x-init:mods-dir)
 ;; (add-to-list 'load-path x-init:libs-dir)
 ;; (x-init:-add-subfolders-to-load-path x-init:libs-dir)
-
-;; reduce the frequency of garbage collection by making it happen on
-;; each 50MB of allocated data (the default is on every 0.76MB)
-(setq gc-cons-threshold 50000000)
-
-;; warn when opening files bigger than 100MB
-(setq large-file-warning-threshold 100000000)
 
 ;; (defvar x-init:user-dir (expand-file-name "user" x-init:dir)
 ;;   "This directory is for personal configuration.")
@@ -66,26 +79,6 @@
 ;;     (mapc 'load (directory-files x-personal-preload-dir 't "^[^#\.].*el$"))))
 
 ;; preload the personal settings from `x-personal-preload-dir'
-
-
-;; (message "[X] Loading X's core modules...")
-
-;; initializing
-(require 'x-main)
-
-;; configuration
-(require 'x-core)
-
-;; modularization
-(require 'x-mode)
-
-;; macOS specific settings
-;; (when (eq system-type 'darwin)
-;;   (require 'x-macos))
-
-;; Windows specific settings
-;; (when (eq system-type 'windows-nt)
-;;  (require 'x-windows))
 
 ;; (message "[X] Loading X's additional modules...")
 

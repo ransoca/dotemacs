@@ -128,5 +128,19 @@
      ["Search in Google" x-google]
      ["View URL" browse-url-at-point])))
 
+(defvar x:mode-dir (expand-file-name "mode" x:init-dir)
+  "The home for inital functionality.")
+
+;; Add directories to load path
+(add-to-list 'load-path x:mode-dir)
+
+;; Darwin/macOS specific settings
+(when (eq system-type 'darwin)
+  (require 'x-mode-mac))
+
+;; Windows NT specific settings
+(when (eq system-type 'windows-nt)
+  (require 'x-mode-win))
+
 (provide 'x-mode)
 ;;; x-mode.el ends here
