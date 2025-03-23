@@ -1,35 +1,23 @@
-;;; x-modules.el --- A listing of modules to load on startup
-
+;;; x-user.el --- A listing of user modules to load on startup
 
 ;;; Commentary:
-
-;; This file is just a list of EmacsX modules to load on startup.
 ;; For convenience the modules are grouped in several categories.
-;; The x-modules.el in the samples folder should be copied
-;; to your personal folder and edited there.
-
-;; Note that some modules can't be used together - e.g. you shouldn't
-;; enable both x-ido and x-ivy, as they serve the same
-;; purpose.
 
 ;;; License:
-
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License
-;; as published by the Free Software Foundation; either version 3
-;; of the License, or (at your option) any later version.
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to the
-;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-;; Boston, MA 02110-1301, USA.
+;; THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+;; IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+;; FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+;; THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+;; IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+;; CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ;;; Code:
 
-;;; Uncomment the modules you'd like to use and restart EmacsX afterwards
+(defvar x:user-dir (expand-file-name "user" x:init-dir)
+  "The home for inital functionality.")
+
+;; Add directories to load path
+(add-to-list 'load-path x:user-dir)
 
 ;;; General productivity tools
 
@@ -87,7 +75,7 @@
 (require 'x-yaml)
 
 ;;; Misc
-(require 'x-erc) ;; A popular Emacs IRC client (useful if you're still into Freenode)
+;; (require 'x-erc) ;; A popular Emacs IRC client (useful if you're still into Freenode)
 
-(provide 'x-modules)
-;;; x-modules.el ends here
+(provide 'x-user)
+;;; x-user.el ends here
