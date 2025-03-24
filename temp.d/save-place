@@ -1,7 +1,0 @@
-;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/Users/Raeoks/.emacs.d/"
-  (dired-filename . "/Users/Raeoks/.emacs.d/temp.d"))
- ("/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/init.el" . 32)
- ("/Users/Raeoks/.emacs" . 846)
- ("/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/"
-  (dired-filename . "/Users/Raeoks/Projects/lib/github.com/RansLogs/EmacsX/init.el")))

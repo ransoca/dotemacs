@@ -11,8 +11,7 @@
 ;; IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 ;; CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-;;; Code: NOOP
-;;; init.el ends here
+;;; Code:
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -27,3 +26,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;;; init.el ends here
