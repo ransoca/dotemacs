@@ -11,45 +11,19 @@
 ;; IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 ;; CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-;;; Code:
-
-;; Always load newest byte code
-(setq load-prefer-newer t)
-
-;; Define directory structure
-(defvar x:dir (file-name-directory load-file-name)
-  "The root directory for initialization.")
-
-(defvar x:init-dir (expand-file-name "init.d" x:dir)
-   "The root directory for configuration.")
-
-(add-to-list 'load-path x:init-dir)
-
-;; reduce the frequency of garbage collection by making it happen on
-;; each 50MB of allocated data (the default is on every 0.76MB)
-(setq gc-cons-threshold 50000000)
-
-;; warn when opening files bigger than 100MB
-(setq large-file-warning-threshold 100000000)
-
-;; (message "[X] Loading X's core modules...")
-
-;; booting
-(require 'x-boot)
-
-;; initializing
-(require 'x-main)
-
-;; configuration
-(require 'x-core)
-
-;; modularization
-(require 'x-mode)
-
-(x-mode t)
-
-;; customization
-(require 'x-user)
-
+;;; Code: NOOP
 ;;; init.el ends here
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(zop-to-char zenburn-theme yaml-mode which-key web-mode volatile-highlights vertico undo-tree super-save solarized-theme smartrep smartparens rainbow-mode rainbow-delimiters projectile orderless operate-on-number nlinum move-text magit lsp-ui json-mode js2-mode imenu-anywhere hl-todo guru-mode git-timemachine git-modes gist flycheck expand-region exec-path-from-shell epl elisp-slime-nav editorconfig easy-kill discover-my-major diminish diff-hl crux consult company browse-kill-ring anzu ag ace-window)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

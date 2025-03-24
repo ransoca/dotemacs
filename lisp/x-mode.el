@@ -128,7 +128,7 @@
      ["Search in Google" x-google]
      ["View URL" browse-url-at-point])))
 
-(defvar x:mode-dir (expand-file-name "mode" x:init-dir)
+(defvar x:mode-dir (expand-file-name "mode" x:dir)
   "The home for inital functionality.")
 
 ;; Add directories to load path

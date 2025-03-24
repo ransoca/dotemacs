@@ -26,7 +26,7 @@
 ;; (setq mac-command-modifier 'meta)
 ;; (setq mac-option-modifier nil)
 
-;; Enable emoji, and stop the UI from freezing when trying to display them.
+;; Enable emoji (😄, 🏴󠁧󠁢󠁳󠁣󠁴󠁿) and stop the UI from freezing when trying to display them.
 (when (fboundp 'set-fontset-font)
   (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
 

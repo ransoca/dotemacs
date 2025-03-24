@@ -13,7 +13,7 @@
 
 ;;; Code:
 
-(defvar x:user-dir (expand-file-name "user" x:init-dir)
+(defvar x:user-dir (expand-file-name "user" x:dir)
   "The home for inital functionality.")
 
 ;; Add directories to load path

@@ -44,6 +44,7 @@
 
 ;; Mode line settings
 (line-number-mode t)
+(global-nlinum-mode t)
 (column-number-mode t)
 (size-indication-mode t)
 
@@ -71,10 +72,6 @@
       visible-bell t)
 (show-paren-mode t)
 (setq uniquify-buffer-name-style 'forward)
-
-;; Emoji: 😄, 🏴󠁧󠁢󠁳󠁣󠁴󠁿
-(when (fboundp 'set-fontset-font)
-  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
 
 (provide 'x-core-uiux)
 

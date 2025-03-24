@@ -13,7 +13,7 @@
 
 ;;; Code:
 
-(defvar x:boot-dir (expand-file-name "boot" x:init-dir)
+(defvar x:boot-dir (expand-file-name "boot" x:dir)
   "The home for inital functionality.")
 
 ;; Add directories to load path
@@ -38,6 +38,3 @@
 
 (provide 'x-boot)
 ;;; x-boot.el ends here
-
-(message x:boot-dir)
-
