@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+read_mods() {
+    cat ./etc/mods.list ./etc/mods.list.d/base-mods.list ./etc/mods.list.d/prog-mods.list
+}
+
+for mod in `read_mods`; do
+    loc="${1}/${MOD_NAME}-${mod}.el"
+    echo ";; packing ${mod} mod to ${loc}"
+    sed "s,MOD,${MOD_NAME},g" ./src/mods/${mod}.el > ${loc}
+    unset loc
+done

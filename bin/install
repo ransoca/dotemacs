@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+read_mods() {
+  cat ./etc/mods.list ./etc/mods.list.d/base-mods.list ./etc/mods.list.d/prog-mods.list
+}
+
+echo "MOD_NAME=" ${MOD_NAME}
+
+( sed "s,PWD,${PWD},g;s,MOD,${MOD_NAME},g" ./src/head.el
+  for mod in $(read_mods); do
+    echo ";; linking ${mod} mod"
+    printf "(require '${MOD_NAME}-%s)\n\n" "${mod}"
+  done
+  sed "s,MOD,${MOD_NAME},g" ./src/tail.el ) > "${1}"
