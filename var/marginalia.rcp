@@ -1,0 +1,4 @@
+(:name marginalia
+       :description "This adds marginalia to the minibuffer completions"
+       :type elpa
+       :repo ("melpa" . "http://melpa.org/packages/"))

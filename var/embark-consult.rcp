@@ -1,0 +1,4 @@
+(:name embark-consult
+       :description "Consult provides search and navigation commands."
+       :type elpa
+       :repo ("melpa" . "http://melpa.org/packages/"))

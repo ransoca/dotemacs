@@ -1,0 +1,4 @@
+(:name solarize
+       :description "Emacs highlighting using Ethan Schoonover’s Solarized color scheme"
+       :type github
+       :pkgname "sellout/emacs-color-theme-solarized"))

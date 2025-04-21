@@ -1,0 +1,4 @@
+(:name tree-sitter
+:description "This is the base framework of the Emacs binding for Tree-sitter, an incremental parsing system."
+       :type elpa
+       :repo ("melpa" . "http://melpa.org/packages/"))

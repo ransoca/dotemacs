@@ -1,0 +1,4 @@
+(:name fira-code-mode
+       :description "Emacs highlighting using Ethan Schoonover’s Solarized color scheme"
+       :type elpa
+       :repo ("melpa" . "http://melpa.org/packages/"))

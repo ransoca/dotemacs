@@ -1,0 +1,4 @@
+(:name vertico
+       :description "This provides a performant and minimalistic vertical completion."
+       :type elpa
+       :repo ("melpa" . "http://melpa.org/packages/"))

@@ -1,0 +1,4 @@
+(:name orderless
+       :description "Completion style that divides the pattern into space-separated components"
+       :type elpa
+       :repo ("melpa" . "http://melpa.org/packages/"))

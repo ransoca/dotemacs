@@ -1,0 +1,4 @@
+(:name tree-sitter-langs
+       :description "This is a convenient language bundle for the Emacs package tree-sitter. It serves as an interim distribution mechanism."
+       :type elpa
+       :repo ("melpa" . "http://melpa.org/packages/"))

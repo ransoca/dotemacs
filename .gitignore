@@ -38,7 +38,6 @@ tramp
 .emacs.desktop.lock
 network-security.data
 transient/
-var/
 .cache/
 .lsp-session*
 gotools/
