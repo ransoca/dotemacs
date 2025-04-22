@@ -12,3 +12,4 @@ echo "MOD_NAME=" ${MOD_NAME}
     printf "(require '${MOD_NAME}-%s)\n\n" "${mod}"
   done
   sed "s,MOD,${MOD_NAME},g" ./src/tail.el ) > "${1}"
+
