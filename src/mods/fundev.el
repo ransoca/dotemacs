@@ -15,8 +15,6 @@
                       'align-cljlet
                       'fill-column-indicator
                       'flycheck-clojure
-                      'erlang-mode
-                      'erlware-mode
                       'elixir
                       'alchemist
                       'haskell-mode)
@@ -79,15 +77,7 @@
  (clojure:load-before-running cider-test-rerun-tests)
  (clojure:load-before-running cider-test-run-test)
 
- ;; erlang
- (setq erlang-root-dir "/usr/homebrew/lib/erlang")
- (setq erlang-man-root-dir "/usr/homebrew/lib/erlang/man")
-
- (add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
- (add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
-
  ;; elixir
-
  (setq elixir-iex-command "/usr/homebrew/bin/iex")
  (setq elixir-compiler-command "/usr/homebrew/bin/elixirc")
 

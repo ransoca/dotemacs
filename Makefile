@@ -5,7 +5,7 @@ all: ./var/deps ~/.emacs ~/.emacs.d/custom.el ~/.bin/ex ~/.bin/EmacsX
 
 .PHONY: nuke
 nuke: ~/.emacs.d
-	rm -rf ~/.emacs.d ./var/deps ~/.emacs ~/.bin/EmacsX
+	rm -rf ~/.emacs.d ./var/deps ~/.emacs ~/.bin/ex ~/.bin/EmacsX
 
 .PHONY: clean
 clean: ./var/deps ~/.emacs

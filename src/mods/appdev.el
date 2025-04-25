@@ -14,6 +14,8 @@
 (MOD:require-packages 'markdown-mode
                       'python-mode
                       'python-black
+                      'anaconda-mode
+                      'company-anaconda
                       'ruby-mode
                       'inf-ruby
                       'robe-mode
@@ -49,12 +51,15 @@
  (setq python-shell-interpreter "ipython"
        python-shell-interpreter-args "-i --simple-prompt")
 
- (add-hook 'python-mode-hook 'eglot-ensure)
+ (add-to-list 'company-backends 'company-anaconda)
 
  (add-to-list 'eglot-server-programs
               '(python-mode . ("jedi-language-server")))
 
- (add-hook 'python-mode 'python-black-on-save-mode-enable-dwim)
+ (add-hook 'python-mode-hook 'eglot-ensure)
+ (add-hook 'python-mode-hook 'anaconda-mode)
+ (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+ (add-hook 'python-mode-hook 'python-black-on-save-mode-enable-dwim)
 
  (require 'ruby-mode)
  ;; inf ruby
