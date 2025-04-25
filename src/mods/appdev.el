@@ -59,7 +59,6 @@
  (add-hook 'python-mode-hook 'eglot-ensure)
  (add-hook 'python-mode-hook 'anaconda-mode)
  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
- (add-hook 'python-mode-hook 'python-black-on-save-mode-enable-dwim)
 
  (require 'ruby-mode)
  ;; inf ruby
