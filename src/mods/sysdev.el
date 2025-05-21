@@ -41,6 +41,12 @@
 (defun MOD:--eglot-format-buffer-before-save ()
   (add-hook 'before-save-hook #'eglot-format-buffer -10 t))
 
+(defun MOD:--eglot-organize-imports-before-save ()
+  (add-hook 'before-save-hook
+            (lambda ()
+              (call-interactively 'eglot-code-action-organize-imports))
+            nil t))
+
 (defun MOD:--rust-mode-defaults ()
   "Defaults for Rust mode."
   (local-set-key (kbd "TAB") 'company-indent-or-complete-common)
@@ -69,11 +75,7 @@
  (add-hook 'go-mode-hook 'eglot-ensure)
  (add-hook 'go-mode-hook 'MOD:--go-mode-defaults)
  (add-hook 'go-mode-hook #'MOD:--eglot-format-buffer-before-save)
-
- (add-hook 'before-save-hook
-           (lambda ()
-             (call-interactively 'eglot-code-action-organize-imports))
-           nil t)
+ (add-hook 'go-mode-hook #'MOD:--eglot-organize-imports-before-save)
 
  (setq rust-mode-treesitter-derive t)
 
