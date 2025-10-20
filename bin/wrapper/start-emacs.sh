@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-EMACS_SH="/Applications/Emacs.app/Contents/MacOS/Emacs.sh"
+EMACS="$(brew --prefix)/opt/emacs-plus/Emacs.app/Contents/MacOS/Emacs"
 
-${EMACS_SH} ${PWD} > /dev/null 2>&1 &
+${EMACS} ${PWD} > /dev/null 2>&1 &

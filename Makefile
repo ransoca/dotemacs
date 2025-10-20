@@ -1,11 +1,11 @@
 MOD_NAME = dot
 
 .PHONY: all
-all: ./var/deps ~/.emacs ~/.emacs.d/custom.el ~/.bin/ex ~/.bin/EmacsX
+all: ./var/deps ~/.emacs ~/.emacs.d/custom.el ~/.bin/el ~/.bin/elmacs
 
 .PHONY: nuke
 nuke: ~/.emacs.d
-	rm -rf ~/.emacs.d ./var/deps ~/.emacs ~/.bin/ex ~/.bin/EmacsX
+	rm -rf ~/.emacs.d ./var/deps ~/.emacs ~/.bin/el ~/.bin/elmacs
 
 .PHONY: clean
 clean: ./var/deps ~/.emacs
@@ -27,8 +27,8 @@ clean: ./var/deps ~/.emacs
 ~/.bin:
 	mkdir -p $@
 
-~/.bin/ex: ~/.bin
+~/.bin/el: ~/.bin
 	ln -nfs ${PWD}/bin/wrapper/start-emacs.sh $@
 
-~/.bin/EmacsX: ~/.bin
+~/.bin/elmacs: ~/.bin
 	ln -nfs ${PWD}/bin/wrapper/start-emacs.sh $@
