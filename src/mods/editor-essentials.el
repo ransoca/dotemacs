@@ -30,6 +30,7 @@
                       'multiple-cursors
                       'neotree
                       'orderless
+		      'project
                       'projectile
                       'rainbow-delimiters
                       'smartparens

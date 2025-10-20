@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+EMACSSTANDALONE="$(brew --prefix)/opt/emacs-plus/Emacs.app/Contents/MacOS/Emacs"
+
+${EMACSSTANDALONE} ${PWD} > /dev/null 2>&1 &

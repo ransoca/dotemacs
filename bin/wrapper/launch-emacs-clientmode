@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+EMACSCLIENTMODE="$(brew --prefix)/opt/emacs-plus/bin/emacsclient"
+
+${EMACSCLIENTMODE} --create-frame ${PWD} > /dev/null 2>&1 &

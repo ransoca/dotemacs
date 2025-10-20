@@ -15,7 +15,6 @@
 
 (MOD:require-packages 'coffee-mode
                       'rainbow-mode
-                      'scss-mode
                       'js2-mode
                       'json-mode
                       'rjsx-mode
@@ -25,10 +24,6 @@
 (defun MOD:--css-mode-defaults ()
   "Defaults for CSS mode."
   (rainbow-mode +1))
-
-(defun MOD:--scss-mode-defaults ()
-  "Defaults for SCSS mode."
-  (MOD:--css-mode-defaults))
 
 (defun MOD:--js-mode-defaults ()
   "Defaults for JS mode."
@@ -55,18 +50,12 @@
 
  (setq coffee-tab-width 2)
 
-;; (require 'css-mode)
+ (require 'css-mode)
  (require 'rainbow-mode)
 
  (setq css-indent-offset 2)
 
  (add-hook 'css-mode-hook 'MOD:--css-mode-defaults)
-
- (require 'scss-mode)
-
- (setq scss-compile-at-save nil)
-
- (add-hook 'scss-mode-hook 'MOD:--scss-mode-defaults)
 
  (require 'js2-mode)
 
